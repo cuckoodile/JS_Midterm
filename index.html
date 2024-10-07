@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petal Parade</title>
+    <link rel="shortcut icon" href="media/blue-flower-icon.png" type="image/*">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="pop-up">
+        <div id="add-container">
+            <button id="close-btn" onclick="hide_add()">X</button>
+            <div id="img-container">
+                <p id="img-hover-tooltip">Select Image</p>
+                <div id="img-frame">
+                    <input type="file" id="fileId" accept="image/*" onchange="imageUploaded()" style="display: none;">
+                    <img id="img" onclick="selectImg()"> 
+                </div>
+            </div>
+            <input type="text" id="name" placeholder="Flower name">
+            <input type="text" id="price" placeholder="Price">
+            <textarea name="" id="description" placeholder="Product description"></textarea>
+            <select id="status">
+                <option value="default" hidden selected>Select status</option>
+                <option value="Whole price">Whole price</option>
+                <option value="Sale">Sale</option>
+            </select>
+            <section>
+                <button onclick="Add()">Post</button>
+            </section>
+        </div>
+    </div>
+
+    <div id="header">
+        <nav>
+            <span>🌸 Petal Parade</span>
+            <ul>
+                <li><a >Home</a></li>
+                <li><a >Cart</a></li>
+                <li><a >Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="main">
+        <h1><center style="color: rgb(255, 255, 255);">Welcome to Petals Parade</center></h1>
+        <div id="content">
+            <aside>
+                <button onclick="show_add()" title="ADD">+</button>
+            </aside>
+            <main>
+                <div id="main-container">
+                    <!-- <div class="box" id="" onclick="itemHTML()">
+                        <section>
+                            <button id="close-btn" onclick="Delete()">X</button>
+                            <button id="edit-btn" onclick="Edit()">E</button>
+                        </section>
+                        <img src="" alt="">
+                        <h3></h3>
+                        <p style="max-height: 20vh; overflow-y: auto;"></p>
+                        <br>
+                        <br>
+                        <section>
+                            <p class="item-price"></p>
+                            <p></p>
+                        </section>
+                    </div> -->
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div id="footer"></div>
+
+    
+    <script src="data.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+</html>

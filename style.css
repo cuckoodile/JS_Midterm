@@ -1,0 +1,306 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    color: #FFF9E6;
+}
+
+body {
+    background-color: #161616;
+    position: relative;
+}
+
+#pop-up {
+    background-color: rgba(0, 0, 0, 0.845);
+    backdrop-filter: blur(4px);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    transform: scale(0);
+    transition: .3s ease-out all;
+}
+
+#add-container {
+    background-color: black;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90vh;
+    gap: 1rem;
+    padding: 2rem 1rem  1.5rem;
+    border-radius: 1rem;
+    z-index: 100;
+    & #close-btn {
+        color: black;
+        position: absolute;
+        top: 2%;
+        right: 2%;
+        font-size: 2rem;
+        padding: 0 .3rem;
+        border-radius: 50%;
+    }
+    & #img-container {
+        position: relative;
+        & #img-frame {
+            background-color: #B2D8B2;
+            border: 5px solid rgb(11, 255, 68); 
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            cursor: pointer;
+            width: 13rem; 
+            height: 13rem; 
+            border-radius: 50%; 
+            margin-bottom: 1rem;
+            & img {
+                object-fit: cover; 
+                transition: filter;
+                transition: .15s all;
+                width: 100%; 
+                height: 100%; 
+            }
+            & img:hover {
+                filter: blur(4px);
+            }
+        }
+        & #img-hover-tooltip {
+            opacity: 0;
+            pointer-events: none;
+            user-select: none;
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            font-size: 2rem;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 100;
+            transition: opacity 0.3s;
+        }
+        & #img-container:hover #img-hover-tooltip {
+            opacity: 1;
+        }
+    }
+    & input {
+        color: black;
+        text-align: center;
+        width: 100%;
+        font-size: 1.5rem;
+        padding: .3rem;
+    }
+    & select {
+        color: black;
+        cursor: pointer;
+        font-size: 1.5rem;
+        padding: .3rem;
+        & option {
+            color: black;
+            cursor: pointer;
+        }
+    }
+    & textarea {
+        color: black;
+        font-size: 1.5rem;
+        width: 100%;
+        height: 20vh;
+        padding: 1rem;
+        resize: none;
+    }
+    & button {
+        color: black;
+        cursor: pointer;
+        font-size: 1.5rem;
+        padding: .3rem;
+    }
+}
+
+#header {
+    background-color: #4b4b4b;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    padding: .5rem 1rem .5rem 2rem;
+    font-size: 1.5rem;
+    height: 7vh;
+    width: 100%;
+    z-index: 10;
+    & nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        & span {
+            font-size: 2rem;
+        }
+        & ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: .5rem;
+            & a {
+                color: rgba(255, 255, 255, 0.714);
+                text-decoration: none;
+                cursor: pointer;
+                padding: .5rem;
+                transition: .3s all;
+            }
+            & a:hover {
+                background: linear-gradient(#B2D8B2, #fff9e6a9, #B2D8B2);
+                color: rgb(255, 255, 255);
+                font-weight: bold;
+                margin: 0 .3rem;
+            }
+        }
+    }
+}
+
+#main {
+    padding: 10vh 1rem 1rem 0;
+    height: fit-content;
+    & #content {
+        display: flex;
+        height: 100%;
+        padding: 2vh 0;
+        gap: .3rem;
+        & aside {
+            background-color: rgba(255, 255, 255, 0.468);
+            width: 4vw;
+            & button {
+                color: black;
+                cursor: pointer;
+                font-size: 3rem;
+                width: 100%;
+                height: fit-content;
+            }
+        }
+        & main {
+            background-color: rgba(255, 255, 255, 0.468);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+            height: fit-content;
+            padding: 1rem; 
+            transition: .5s all;
+            & #main-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+                gap: 1rem;
+                transition: .5s all;
+                & .box {
+                    background: rgba( 255, 255, 255, 0.35 );
+                    box-shadow: 3px 8px 18px 0 rgba(0, 0, 0, 0.37);
+                    backdrop-filter: blur( 4.5px );
+                    -webkit-backdrop-filter: blur( 4.5px );
+                    border-radius: 10px;
+                    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    height: fit-content;
+                    width: 17rem;
+                    padding: 3.5rem 1rem 1rem;
+                    border-radius: 1rem;
+                    & img {
+                        border: solid black 3px;
+                        align-self: center;
+                        height: 30vh;
+                        width: 13rem;
+                        border-radius: 1rem;
+                    }
+                    & .edit-img {
+                        cursor: pointer;
+                    }
+                    & h3 {
+                        color: black;
+                        text-align: center;
+                        font-size: 1.5rem;
+                        margin: .5rem 0 1rem;
+                    }
+                    & p {
+                        color: black;
+                        overflow-x: hidden;
+                        font-size: 1.2rem;
+                    }
+                    & section {
+                        display: flex;
+                        justify-content: space-between;
+                        & .item-price {
+                            /* background-color: brown; */
+                            overflow-x: auto;
+                            width: 50%;
+                        }
+                        & #close-btn {
+                            color: black;
+                            position: absolute;
+                            cursor: pointer;
+                            top: 2%;
+                            right: 2%;
+                            font-size: 2rem;
+                            padding: 0 .3rem;
+                            border-radius: 50%;
+                        }
+                        & #edit-btn {
+                            color: black;
+                            position: absolute;
+                            cursor: pointer;
+                            top: 2%;
+                            left: 2%;
+                            font-size: 2rem;
+                            padding: 0 .3rem;
+                            border-radius: 50%;
+                        }
+                        & .card-select {
+                            color: black;
+                            padding: .3rem;
+                            & option {
+                                color: black;
+                                padding: .3rem;
+                            }
+                        }
+                    }
+                    & .cardSaveBtn {
+                        color: black;
+                        width: fit-content;
+                        align-self: center;
+                        cursor: pointer;
+                        margin-top: 1rem;
+                        font-size: 1.5rem;
+                    }
+                    & .item-title {
+                        border-bottom: solid black 2px;
+                    }
+                    & .item-description {
+                        border-bottom: solid black 2px;
+                    }
+                    & .item-pricee {
+                        border-bottom: solid black 2px;
+                    }
+                    & .card-select {
+                        cursor: pointer;
+                    }
+                }
+                & .box:last-child {
+                    justify-self: left;
+                }
+            }
+        }
+    }
+}
+
+#footer {
+    background-color: black;
+    padding: 7rem;
+}
